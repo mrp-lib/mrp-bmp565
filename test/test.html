@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<canvas id="drawer" width="44" height="23"></canvas>
+	<script>
+		window.onload = () => {
+			const ctx = document.getElementById('drawer').getContext('2d')
+			const colors = window.colors
+			const imgw = 44
+			for (let i = 0; i < colors.length; i += 3) {
+				const r = colors[i], g = colors[i + 1], b = colors[i + 2]
+				ctx.fillStyle = `rgb(${r},${g},${b})`
+				const x = parseInt(i / 3) % imgw
+				const y = parseInt((i / 3) / imgw)
+				ctx.fillRect(x, y, x + 1, y + 1)
+			}
+		}
+	</script>
+</body>
+
+</html>
